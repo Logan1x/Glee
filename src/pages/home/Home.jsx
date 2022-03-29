@@ -58,7 +58,7 @@ export default function Home() {
       <footer className="footer">
         Developed By{" "}
         <span class="text-highlight">
-          <a href="https://github.com/logan1x/plethora">Khushal Sharma</a>
+          <a href="https://github.com/logan1x/glee">Khushal Sharma</a>
         </span>
       </footer>
     </div>
