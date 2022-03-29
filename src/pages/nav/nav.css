@@ -1,0 +1,57 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0rem 2rem;
+  background: var(--color-background);
+  color: var(--color-text);
+  grid-area: header;
+  font-size: 1.5rem;
+}
+
+.nav-title {
+  cursor: pointer;
+  font-family: "Abril Fatface", cursive;
+  font-size: 2.5rem;
+}
+
+.nav-title a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-title a:hover {
+  text-decoration: none;
+}
+
+.nav-title .text-sm {
+  font-size: 0.6rem;
+  color: var(--color-text);
+}
+
+.nav-badge-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 0.2rem;
+  font-size: 2.2rem;
+  color: var(--color-foreground);
+}
+
+.nav-pills {
+  display: flex;
+  align-items: center;
+}
+
+.nav-pills > * {
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    margin: 0rem 0.5rem;
+  }
+  .nav-title {
+    font-size: 1.5rem;
+  }
+}

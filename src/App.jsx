@@ -8,7 +8,7 @@ import Videos from "./pages/videos/Videos";
 
 function App() {
   return (
-    <div className="container-body">
+    <div className="container-main">
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />

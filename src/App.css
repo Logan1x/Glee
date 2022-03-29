@@ -1,51 +1,126 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300&display=swap");
+
+:root {
+  --color-foreground: #111827;
+  --color-background: #fdfdfd;
+  --color-card-bg: #171717;
+  --color-card-fg: #ffffff;
+  --color-alert-bg: #ef4444;
+  --color-text: #333;
+  --color-bg-light-gray: #e5e7eb;
+  --color-bg-dark-gray: #d1d5db;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.2;
+  background-color: var(--color-background);
+  font-family: "Raleway", sans-serif;
+  color: var(--color-text);
+}
+
+.form-control {
+  box-sizing: border-box;
+}
+
+.container-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr 30px;
+  height: 100vh;
+  /* margin: auto 3rem; */
+  grid-template-areas:
+    "header "
+    "main "
+    "footer ";
+}
+
+.container-aside-layout {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  grid-template-rows: 1fr;
+  /* height: 100vh; */
+  margin: auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main ";
+}
+
+.container-pages {
+  grid-area: main;
+  padding: 1rem;
+  background-color: var(--color-bg-light-gray);
+  border-radius: 0.3rem;
+}
+
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn {
+  font-size: 1.8rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  padding: 0.7rem 1.2rem;
+  background-color: var(--color-text);
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.85;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn-filled {
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+.btn-filled:hover {
+  opacity: 0.85;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
+footer {
+  text-align: center;
   font-size: 1.2rem;
-  margin: 1rem;
+}
+
+footer a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .container-aside-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "header"
+      "main";
+  }
+
+  .sidebar,
+  .nav-search,
+  .nav-pills {
+    display: none;
+  }
+
+  .hero-card-2,
+  .hero-card-new-arrivals {
+    flex-wrap: wrap;
+  }
+
+  .cart-img,
+  .cart-total-checkout,
+  .hero-card-new-arrivals img {
+    width: 100%;
+  }
 }
