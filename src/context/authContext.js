@@ -9,13 +9,11 @@ const AuthProvider = ({ children }) => {
 
   const localStorageToken = JSON.parse(localStorage.getItem("loginItems"));
   const [token, setToken] = useState(localStorageToken?.token);
-  const [currUser, setCurrUser] = useState(localStorageToken?.user);
+  const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
 
   const loginHandler = async (email, password) => {
     try {
       const response = await loginUtility(email, password);
-
-      console.log(response);
 
       if (response.status === 200 || response.status === 201) {
         localStorage.setItem(
@@ -27,7 +25,7 @@ const AuthProvider = ({ children }) => {
         );
         navigate("/");
         setToken(response.data.encodedToken);
-        setCurrUser(response.data.foundUser);
+        setCurrentUser(response.data.foundUser);
       }
     } catch (err) {
       console.log(err);
@@ -37,13 +35,13 @@ const AuthProvider = ({ children }) => {
   const logoutHandler = () => {
     localStorage.removeItem("loginItems");
     setToken(null);
-    setCurrUser(null);
+    setCurrentUser(null);
     navigate("/login");
   };
 
   return (
     <AuthContext.Provider
-      value={{ loginHandler, logoutHandler, token, currUser }}
+      value={{ loginHandler, logoutHandler, token, currentUser }}
     >
       {children}
     </AuthContext.Provider>
