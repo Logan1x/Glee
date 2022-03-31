@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import "./home.css";
 
 import HeroImage from "../../assets/homePageImage.jpg";
@@ -10,6 +10,9 @@ export default function Home() {
         <div className="home-title-onImage">
           <h1 className="home-title-heading">Glee</h1>
           <p>Entertainment for everyone.</p>
+          <Link to="/videos">
+            <button>Explore</button>
+          </Link>
         </div>
         <img className="home-img" src={HeroImage} alt="" />
       </div>
@@ -57,7 +60,7 @@ export default function Home() {
       </div>
       <footer className="footer">
         Developed By{" "}
-        <span class="text-highlight">
+        <span className="text-highlight">
           <a href="https://github.com/logan1x/glee">Khushal Sharma</a>
         </span>
       </footer>
