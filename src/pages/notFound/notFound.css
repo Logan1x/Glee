@@ -1,0 +1,15 @@
+.notFoundPage-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-highlight{
+    color: var(--color-foreground);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.text-highlight:hover{
+    text-decoration: none;
+}

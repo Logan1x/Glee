@@ -29,7 +29,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 1fr 30px;
-  height: 100vh;
+  min-height: 100vh;
   /* margin: auto 3rem; */
   grid-template-areas:
     "header "

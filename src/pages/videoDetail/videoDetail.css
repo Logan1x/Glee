@@ -1,0 +1,15 @@
+.videoDetail-card-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 70rem;
+    margin: auto;
+}
+
+.videoDetail-card{
+    height: auto;
+    margin: 0rem 1rem;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    border: 1px solid;
+}

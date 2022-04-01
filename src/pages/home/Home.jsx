@@ -11,7 +11,7 @@ export default function Home() {
           <h1 className="home-title-heading">Glee</h1>
           <p>Entertainment for everyone.</p>
           <Link to="/videos">
-            <button>Explore</button>
+            <button className="home-title-btn">Explore</button>
           </Link>
         </div>
         <img className="home-img" src={HeroImage} alt="" />

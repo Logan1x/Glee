@@ -2,10 +2,26 @@ import { createContext, useContext, useState } from "react";
 import { loginUtility } from "../utils/authHelper";
 import { useNavigate } from "react-router-dom";
 
+import toast from "react-hot-toast";
+
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
+
+  const toastStyle = {
+    style: {
+      borderRadius: "10px",
+      background: "#333",
+      color: "#fff",
+    },
+  };
+
+  const notify = (msg, status) => {
+    status === "success"
+      ? toast.success(msg, toastStyle)
+      : toast.error(msg, toastStyle);
+  };
 
   const localStorageToken = JSON.parse(localStorage.getItem("loginItems"));
   const [token, setToken] = useState(localStorageToken?.token);
@@ -23,12 +39,14 @@ const AuthProvider = ({ children }) => {
             user: response.data.foundUser,
           })
         );
-        navigate("/");
+        navigate("/videos");
         setToken(response.data.encodedToken);
         setCurrentUser(response.data.foundUser);
+        notify("Logged in successfully!", "success");
       }
     } catch (err) {
       console.log(err);
+      notify("Please try again", "error");
     }
   };
 
@@ -41,7 +59,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ loginHandler, logoutHandler, token, currentUser }}
+      value={{ loginHandler, logoutHandler, token, currentUser, notify }}
     >
       {children}
     </AuthContext.Provider>
