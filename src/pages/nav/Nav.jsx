@@ -1,8 +1,11 @@
-import React from "react";
 import { Link } from "react-router-dom";
+
 import "./nav.css";
+import { useAuth } from "../../context/authContext";
 
 export default function Nav() {
+  const { token, logoutHandler } = useAuth();
+
   return (
     <nav className="nav">
       <div className="nav-title">
@@ -12,9 +15,15 @@ export default function Nav() {
         </p>
       </div>
       <div className="nav-pills">
-        <Link to="/login" className=" btn-filled">
-          Login
-        </Link>
+        {token ? (
+          <a onClick={logoutHandler} className=" btn-filled">
+            Logout
+          </a>
+        ) : (
+          <Link to="/login" className=" btn-filled">
+            Login
+          </Link>
+        )}
       </div>
     </nav>
   );
