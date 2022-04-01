@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
         notify("Logged in successfully!", "success");
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       notify("Please try again", "error");
     }
   };
