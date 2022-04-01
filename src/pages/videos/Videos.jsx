@@ -15,13 +15,15 @@ export default function Videos() {
       <h1 className="videoListing-title">Videos</h1>
       <span>Showing All Results</span> (found {VideosData.length} results)
       <div className="videoListing-card-parent">
-        {VideosData.map(({ _id, title, description, creator }) => {
+        {VideosData.map(({ _id, title, description, creator, imgSrc }) => {
           return (
             <Link to={`/videodetail/${_id}`}>
               <div key={_id} className="videoListing-card">
-                <h2>{title}</h2>
-                <p>{description}</p>
-                <p>{creator}</p>
+                <img className="videoListing-card-image" src={imgSrc} alt="" />
+                <div>
+                  <h2>{title}</h2>
+                  <p>{creator}</p>
+                </div>
               </div>
             </Link>
           );

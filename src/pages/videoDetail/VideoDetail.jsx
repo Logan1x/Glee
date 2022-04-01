@@ -19,6 +19,8 @@ export default function VideoDetail() {
       <div key={_id} className="videoDetail-card">
         <div className="videoDetail-embed">
           <iframe
+            width="100%"
+            height="100%"
             src="https://www.youtube.com/embed/RshlH3T27U4"
             title="YouTube video player"
             frameborder="0"

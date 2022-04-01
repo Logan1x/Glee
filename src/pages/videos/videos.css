@@ -16,12 +16,18 @@
 }
 
 .videoListing-card{
-    width:20rem ;
+    max-width: 20rem;
     height: 100%;
     margin: 1rem;
     padding: 0.5rem;
     border: 1px solid;
     border-radius: 0.2rem;
+}
+
+.videoListing-card-image{
+        object-fit: cover;
+        /* height: 100%; */
+        width: 20rem;
 }
 
 .videoListing-card:hover{
