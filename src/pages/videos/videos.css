@@ -1,5 +1,6 @@
 .videoListing-wrapper{
     margin: 0rem 1rem;
+    grid-area: main;
 }
 
 .videoListing-title{
