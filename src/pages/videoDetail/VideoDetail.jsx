@@ -8,7 +8,7 @@ import "./videoDetail.css";
 
 export default function VideoDetail() {
   const { vid } = useParams();
-  const { state } = useDataContext();
+  const { state, dispatch, postWatchLaterData } = useDataContext();
   const { token } = useAuth();
 
   const VideosData = state.data;
@@ -42,7 +42,18 @@ export default function VideoDetail() {
             <div className="videoDetail-buttons">
               <button className="videoDetail-button">Like</button>
               <button className="videoDetail-button">Add To Playlist</button>
-              <button className="videoDetail-button">Add To Watch Later</button>
+              <button
+                className="videoDetail-button"
+                onClick={() =>
+                  postWatchLaterData(
+                    { _id, title, description, creator, embedId },
+                    dispatch,
+                    token
+                  )
+                }
+              >
+                Add To Watch Later
+              </button>
             </div>
           )}
         </div>

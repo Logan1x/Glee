@@ -9,7 +9,7 @@ export default function Sidebar() {
       <div className="sidebar-content">
         <Link to="/">Home</Link>
         <Link to="/videos">Videos</Link>
-        <Link to="/">Watch Later</Link>
+        <Link to="/watchlater">Watch Later</Link>
         <Link to="/">My Playlists</Link>
         <Link to="/">Watching History</Link>
       </div>

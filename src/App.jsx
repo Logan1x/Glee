@@ -9,6 +9,7 @@ import Home from "./pages/home/Home";
 import Videos from "./pages/videos/Videos";
 import VideoDetail from "./pages/videoDetail/VideoDetail";
 import Login from "./pages/auth/Login";
+import WatchLater from "./pages/watchLater/WatchLater";
 import NotFound from "./pages/notFound/NotFound";
 
 function App() {
@@ -16,15 +17,16 @@ function App() {
     <div className="container-main">
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/videos" element={<Videos />} />
         <Route path="/videodetail/:vid" element={<VideoDetail />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/watchlater" element={<WatchLater />} />
 
         {/* mockman route */}
         <Route path="/mockman" element={<Mockman />} />
         {/* 404 page */}
         <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
       </Routes>
       <Toaster position="bottom-right" reverseOrder={false} />
     </div>

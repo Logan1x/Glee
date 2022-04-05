@@ -19,8 +19,8 @@ export default function Videos() {
         <div className="videoListing-card-parent">
           {VideosData.map(({ _id, title, creator, embedId }) => {
             return (
-              <Link to={`/videodetail/${_id}`}>
-                <div key={_id} className="videoListing-card">
+              <Link to={`/videodetail/${_id}`} key={_id}>
+                <div className="videoListing-card">
                   <img
                     className="videoListing-card-image"
                     src={`https://i.ytimg.com/vi/${embedId}/hqdefault.jpg`}
