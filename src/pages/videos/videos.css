@@ -1,0 +1,50 @@
+.videoListing-wrapper{
+    margin: 0rem 1rem;
+    grid-area: main;
+}
+
+.videoListing-title{
+    text-align: center;
+}
+
+.videoListing-card-parent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    margin: 1rem;
+
+}
+
+.videoListing-card{
+    max-width: 20rem;
+    height: 100%;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: 1px solid;
+    border-radius: 0.2rem;
+}
+
+.videoListing-card-image{
+        object-fit: cover;
+        width: 20rem;
+}
+
+.videoListing-card:hover{
+    box-shadow: 1px 2px 5px 0px #BEC0D8;
+}
+
+@media only screen and (max-width: 1000px) {
+    .videoListing-card-parent
+    {
+    align-items: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+.videoListing-card
+{
+    width: auto;
+    margin: 1rem;
+}
+}

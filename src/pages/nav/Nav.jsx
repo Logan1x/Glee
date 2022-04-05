@@ -6,6 +6,10 @@ import { useAuth } from "../../context/authContext";
 export default function Nav() {
   const { token, logoutHandler } = useAuth();
 
+  const handleClick = () => {
+    logoutHandler();
+  };
+
   return (
     <nav className="nav">
       <div className="nav-title">
@@ -16,7 +20,7 @@ export default function Nav() {
       </div>
       <div className="nav-pills">
         {token ? (
-          <a onClick={logoutHandler} className=" btn-filled">
+          <a onClick={handleClick} className=" btn-filled">
             Logout
           </a>
         ) : (

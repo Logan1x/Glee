@@ -32,8 +32,22 @@ p {
   object-fit: cover;
 }
 
+.home-title-btn {
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border: none;
+}
+
+
+.home-title-btn:hover {
+  opacity: 0.85;
+}
+
 .section-category {
-  /* padding: 0.5rem; */
   background-color: #cffafe;
 }
 

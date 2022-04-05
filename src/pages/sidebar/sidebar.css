@@ -1,0 +1,29 @@
+.sidebar-wrapper{
+    grid-area: sidebar;
+    background-color: var(--color-bg-light-gray);
+    padding: 1rem;
+    border-radius: 0.3rem;
+    border: 1px solid black;
+    margin: 0rem 1rem;
+}
+
+.sidebar-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.sidebar-content > a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    padding: 0.7rem;
+    cursor: pointer;
+}
+
+.sidebar-content > a:hover{
+    opacity: 0.85;
+    text-decoration: underline;
+}
