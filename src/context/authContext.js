@@ -9,6 +9,10 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
+  const localStorageToken = JSON.parse(localStorage.getItem("loginItems"));
+  const [token, setToken] = useState(localStorageToken?.token);
+  const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
+
   const toastStyle = {
     style: {
       borderRadius: "10px",
@@ -22,10 +26,6 @@ const AuthProvider = ({ children }) => {
       ? toast.success(msg, toastStyle)
       : toast.error(msg, toastStyle);
   };
-
-  const localStorageToken = JSON.parse(localStorage.getItem("loginItems"));
-  const [token, setToken] = useState(localStorageToken?.token);
-  const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
 
   const loginHandler = async (email, password) => {
     try {
@@ -55,6 +55,7 @@ const AuthProvider = ({ children }) => {
     setToken(null);
     setCurrentUser(null);
     navigate("/login");
+    notify("Logged out successfully", "success");
   };
 
   return (

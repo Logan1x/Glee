@@ -28,7 +28,7 @@ export default function Home() {
             />
             <div className="section-card-content">
               <h3>
-                <a href="/">Animation</a>
+                <Link to="/videos">Animation</Link>
               </h3>
             </div>
           </div>
@@ -40,7 +40,7 @@ export default function Home() {
             />
             <div className="section-card-content">
               <h3>
-                <a href="/">Education</a>
+                <Link to="/videos">Education</Link>
               </h3>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function Home() {
             />
             <div className="section-card-content">
               <h3>
-                <a href="/">Art</a>
+                <Link to="/videos">Art</Link>
               </h3>
             </div>
           </div>

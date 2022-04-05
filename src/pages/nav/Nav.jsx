@@ -4,11 +4,10 @@ import "./nav.css";
 import { useAuth } from "../../context/authContext";
 
 export default function Nav() {
-  const { token, logoutHandler, notify } = useAuth();
+  const { token, logoutHandler } = useAuth();
 
   const handleClick = () => {
     logoutHandler();
-    notify("Logged out successfully", "success");
   };
 
   return (
