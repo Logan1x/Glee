@@ -1,0 +1,12 @@
+.watchingHistory-heading{
+    font-weight: bold;
+    text-align: center;
+}
+
+.watchingHistory-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}

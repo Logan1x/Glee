@@ -6,6 +6,8 @@ import { useAuth } from "../context/authContext";
 import {
   getWatchLaterData,
   postWatchLaterData,
+  getHistoryData,
+  postHistoryData,
 } from "../utils/dataHelperFunc.js";
 const DataContext = createContext();
 
@@ -37,11 +39,16 @@ const DataProvider = ({ children }) => {
     if (token) {
       const watchLaterData = await getWatchLaterData(token);
       dispatch({ type: "SET_WATCH_LATER", payload: watchLaterData });
+
+      const historyData = await getHistoryData(token);
+      dispatch({ type: "SET_WATCHED_HISTORY", payload: historyData });
     }
   }, [token]);
 
   return (
-    <DataContext.Provider value={{ state, dispatch, postWatchLaterData }}>
+    <DataContext.Provider
+      value={{ state, dispatch, postWatchLaterData, postHistoryData }}
+    >
       {children}
     </DataContext.Provider>
   );

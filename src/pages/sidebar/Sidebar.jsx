@@ -11,7 +11,7 @@ export default function Sidebar() {
         <Link to="/videos">Videos</Link>
         <Link to="/watchlater">Watch Later</Link>
         <Link to="/">My Playlists</Link>
-        <Link to="/">Watching History</Link>
+        <Link to="/history">Watching History</Link>
       </div>
       ;
     </div>

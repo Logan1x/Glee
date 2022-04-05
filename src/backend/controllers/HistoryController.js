@@ -54,7 +54,7 @@ export const addVideoToHistoryHandler = function (schema, request) {
       );
     }
     const { video } = JSON.parse(request.requestBody);
-    if (user.history.some((item) => item.id === video.id)) {
+    if (user.history.some((item) => item._id === video._id)) {
       return new Response(
         409,
         {},

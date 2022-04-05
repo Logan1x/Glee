@@ -1,26 +1,25 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import "./watchLater.css";
 import { useDataContext } from "../../context/dataContext";
+import "./history.css";
 
-export default function WatchLater() {
+export default function History() {
   const { state } = useDataContext();
 
-  const [watchLater, setWatchLater] = useState([]);
+  const [history, setHistory] = useState([]);
 
-  const getWatchLaterData = () => state.watchLater;
+  const getHistoryData = () => state.history;
 
   useEffect(() => {
-    setWatchLater(getWatchLaterData());
-  }, [state.watchLater]);
-
+    setHistory(getHistoryData());
+  }, [state.history]);
   return (
     <div>
-      <h1 className="watchLater-heading">Watch Later</h1>
-      <div className="watchLater-wrapper">
-        {watchLater.length > 0
-          ? watchLater.map(({ _id, title, creator, embedId }) => {
+      <h1 className="watchingHistory-heading">Watch History</h1>
+      <div className="watchingHistory-wrapper">
+        {history.length > 0
+          ? history.map(({ _id, title, creator, embedId }) => {
               return (
                 <div key={_id} className="videoListing-card">
                   <Link to={`/videodetail/${_id}`}>
