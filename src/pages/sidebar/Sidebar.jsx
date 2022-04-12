@@ -10,7 +10,7 @@ export default function Sidebar() {
         <Link to="/">Home</Link>
         <Link to="/videos">Videos</Link>
         <Link to="/watchlater">Watch Later</Link>
-        <Link to="/">My Playlists</Link>
+        <Link to="/playlist">My Playlists</Link>
         <Link to="/history">Watching History</Link>
       </div>
       ;

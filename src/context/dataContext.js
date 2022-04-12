@@ -8,6 +8,9 @@ import {
   postWatchLaterData,
   getHistoryData,
   postHistoryData,
+  getLike,
+  postLike,
+  getPlayListsData,
 } from "../utils/dataHelperFunc.js";
 const DataContext = createContext();
 
@@ -27,12 +30,6 @@ const DataProvider = ({ children }) => {
     }
   };
 
-  // const postWatchLaterData = (video, token) => {
-  //   const data = postDataToWatchLaterArr(video, token);
-  //   console.log(data);
-  //   dispatch({ type: "SET_WATCH_LATER", payload: data });
-  // };
-
   useEffect(async () => {
     const data = await getData();
     dispatch({ type: "SET_DATA", payload: data.videos });
@@ -42,12 +39,18 @@ const DataProvider = ({ children }) => {
 
       const historyData = await getHistoryData(token);
       dispatch({ type: "SET_WATCHED_HISTORY", payload: historyData });
+
+      const likeData = await getLike(token);
+      dispatch({ type: "SET_LIKE", payload: likeData });
+
+      const playListsData = await getPlayListsData(token);
+      dispatch({ type: "SET_PLAYLISTS", payload: playListsData });
     }
   }, [token]);
 
   return (
     <DataContext.Provider
-      value={{ state, dispatch, postWatchLaterData, postHistoryData }}
+      value={{ state, dispatch, postWatchLaterData, postHistoryData, postLike }}
     >
       {children}
     </DataContext.Provider>
