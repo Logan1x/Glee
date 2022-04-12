@@ -11,6 +11,8 @@ import {
   getLike,
   postLike,
   getPlayListsData,
+  postPlayListsData,
+  postVideoToPlaylist,
 } from "../utils/dataHelperFunc.js";
 const DataContext = createContext();
 
@@ -50,7 +52,15 @@ const DataProvider = ({ children }) => {
 
   return (
     <DataContext.Provider
-      value={{ state, dispatch, postWatchLaterData, postHistoryData, postLike }}
+      value={{
+        state,
+        dispatch,
+        postWatchLaterData,
+        postHistoryData,
+        postLike,
+        postPlayListsData,
+        postVideoToPlaylist,
+      }}
     >
       {children}
     </DataContext.Provider>

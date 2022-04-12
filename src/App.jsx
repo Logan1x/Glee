@@ -12,6 +12,7 @@ import Login from "./pages/auth/Login";
 import WatchLater from "./pages/watchLater/WatchLater";
 import History from "./pages/history/History";
 import Playlist from "./pages/playlist/Playlist";
+import PlaylistDetail from "./pages/playlistDetail/PlaylistDetail";
 import NotFound from "./pages/notFound/NotFound";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/watchlater" element={<WatchLater />} />
         <Route path="/history" element={<History />} />
         <Route path="/playlist" element={<Playlist />} />
+        <Route path="/playlistdetail/:pid" element={<PlaylistDetail />} />
 
         {/* mockman route */}
         <Route path="/mockman" element={<Mockman />} />

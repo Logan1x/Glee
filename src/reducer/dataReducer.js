@@ -10,6 +10,13 @@ const dataReducerFunc = (state, action) => {
       return { ...state, likes: action.payload };
     case "SET_PLAYLISTS":
       return { ...state, playlists: action.payload };
+    case "UPDATE_PLAYLIST":
+      return {
+        ...state,
+        playlists: state.playlists.map((pl) =>
+          pl._id === action.payload._id ? action.payload : pl
+        ),
+      };
     default:
       return state;
   }

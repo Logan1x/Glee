@@ -138,10 +138,60 @@ export const getPlayListsData = async (token) => {
     });
 
     if (response.status === 200 || response.status === 201) {
-      console.log(response.data.playlists);
       return response.data.playlists;
     }
   } catch (error) {
     console.error(error);
+  }
+};
+
+export const postPlayListsData = async (playlistObj, dispatch, token) => {
+  try {
+    const response = await axios({
+      method: "POST",
+      headers: {
+        authorization: token,
+      },
+      url: "/api/user/playlists",
+      data: JSON.stringify({
+        playlist: playlistObj,
+      }),
+    });
+
+    if (response.status === 200 || response.status === 201) {
+      dispatch({ type: "SET_PLAYLISTS", payload: response.data.playlists });
+      // notify("Added to Playlists", "success");
+    }
+  } catch (error) {
+    console.error(error);
+    // notify("Error adding to Playlists", "error");
+  }
+};
+
+export const postVideoToPlaylist = async (
+  { _id },
+  dispatch,
+  token,
+  videoObj
+) => {
+  try {
+    const response = await axios({
+      method: "POST",
+      headers: {
+        authorization: token,
+      },
+      url: `/api/user/playlists/${_id}`,
+      data: JSON.stringify({
+        video: videoObj,
+      }),
+    });
+
+    if (response.status === 200 || response.status === 201) {
+      dispatch({ type: "UPDATE_PLAYLIST", payload: response.data.playlist });
+      // notify("Added to Playlists", "success");
+    }
+  } catch (error) {
+    console.error(error);
+    // notify("Error adding to Playlists", "error");
   }
 };
