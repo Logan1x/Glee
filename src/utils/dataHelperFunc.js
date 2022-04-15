@@ -2,6 +2,28 @@ import axios from "axios";
 
 import { notify } from "./toastNotifyHelper";
 
+export const getData = async () => {
+  try {
+    const response = await axios.get("/api/videos");
+    if (response.status === 200 || response.status === 201) {
+      return response.data;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getCategories = async () => {
+  try {
+    const response = await axios.get("/api/categories");
+    if (response.status === 200 || response.status === 201) {
+      return response.data;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const getWatchLaterData = async (token) => {
   try {
     const response = await axios.get("/api/user/watchlater", {

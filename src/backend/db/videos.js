@@ -11,6 +11,7 @@ export const videos = [
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     creator: "When chai met toast",
     embedId: "RshlH3T27U4",
+    categoryName: ["Music", "Pop"],
   },
   {
     _id: "F_Riqjdh2oM",
@@ -19,6 +20,7 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     embedId: "Xi8Fabcb_MA",
+    categoryName: ["Music", "Romance"],
   },
   {
     _id: "F_Riqjasdfdsadh2oM",
@@ -27,5 +29,6 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     embedId: "5Eqb_-j3FDA",
+    categoryName: ["Music", "Indie"],
   },
 ];

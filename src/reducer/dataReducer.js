@@ -8,6 +8,10 @@ const dataReducerFunc = (state, action) => {
       return { ...state, history: action.payload };
     case "SET_LIKE":
       return { ...state, likes: action.payload };
+    case "SET_CATEGORY":
+      return { ...state, category: action.payload };
+    case "SORT_BY_CATEGORY":
+      return { ...state, categoriseBy: action.payload };
     case "SET_PLAYLISTS":
       return { ...state, playlists: action.payload };
     case "UPDATE_PLAYLIST":
@@ -28,6 +32,8 @@ const initialState = {
   history: [],
   likes: [],
   playlists: [],
+  category: [],
+  categoriseBy: null,
 };
 
 export { dataReducerFunc, initialState };

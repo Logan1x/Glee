@@ -34,7 +34,9 @@ export default function Playlist() {
                         alt="playlist-thumbnail"
                       />
                     )}
-                    <p>{item.title}</p>
+                    <p>
+                      {item.title}({`${item.videos.length} videos`})
+                    </p>
                   </div>
                 </Link>
               );
