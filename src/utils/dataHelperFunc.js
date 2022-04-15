@@ -45,6 +45,26 @@ export const postWatchLaterData = async (
   }
 };
 
+export const deleteFromWatchLater = async (videoId, dispatch, token) => {
+  try {
+    const response = await axios({
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+      url: `/api/user/watchlater/${videoId}`,
+    });
+
+    if (response.status === 200 || response.status === 201) {
+      dispatch({ type: "SET_WATCH_LATER", payload: response.data.watchlater });
+      notify("Removed from Watch Later", "success");
+    }
+  } catch (error) {
+    console.error(error);
+    notify("Error removing from Watch Later", "error", "😢");
+  }
+};
+
 export const getHistoryData = async (token) => {
   try {
     const response = await axios.get("/api/user/history", {
@@ -129,6 +149,26 @@ export const postLike = async (
   }
 };
 
+export const removeLike = async (_id, dispatch, token) => {
+  try {
+    const response = await axios({
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+      url: `/api/user/likes/${_id}`,
+    });
+
+    if (response.status === 200 || response.status === 201) {
+      dispatch({ type: "SET_LIKE", payload: response.data.likes });
+      notify("Removed from Likes Videos", "success");
+    }
+  } catch (error) {
+    console.error(error);
+    notify("Error removing from Likes Videos", "error");
+  }
+};
+
 export const getPlayListsData = async (token) => {
   try {
     const response = await axios.get("/api/user/playlists", {
@@ -186,12 +226,64 @@ export const postVideoToPlaylist = async (
       }),
     });
 
+    console.log(response);
+
     if (response.status === 200 || response.status === 201) {
       dispatch({ type: "UPDATE_PLAYLIST", payload: response.data.playlist });
-      // notify("Added to Playlists", "success");
+      notify("Added to Playlist", "success");
+    } else if (response.status === 409) {
+      notify("Video Already Exist in Playlist", "error");
     }
   } catch (error) {
     console.error(error);
-    // notify("Error adding to Playlists", "error");
+    notify("Error adding to Playlist", "error");
+  }
+};
+
+export const deletePlaylist = async (_id, dispatch, token) => {
+  console.log(`_id is ${_id}`);
+  try {
+    const response = await axios({
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+      url: `/api/user/playlists/${_id}`,
+    });
+
+    console.log(response);
+
+    if (response.status === 200 || response.status === 201) {
+      dispatch({ type: "SET_PLAYLISTS", payload: response.data.playlists });
+      notify("Playlist Deleted", "success");
+    }
+  } catch (error) {
+    console.error(error);
+    notify("Error deleting Playlist", "error");
+  }
+};
+
+export const deleteVideoFromPlaylist = async (
+  playlistId,
+  videoId,
+  dispatch,
+  token
+) => {
+  try {
+    const response = await axios({
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+      url: `/api/user/playlists/${playlistId}/${videoId}`,
+    });
+
+    if (response.status === 200 || response.status === 201) {
+      dispatch({ type: "UPDATE_PLAYLIST", payload: response.data.playlist });
+      notify("Video Deleted from Playlist", "success");
+    }
+  } catch (error) {
+    console.error(error);
+    notify("Error deleting Video from Playlist", "error");
   }
 };

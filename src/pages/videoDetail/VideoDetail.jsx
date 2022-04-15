@@ -13,6 +13,7 @@ export default function VideoDetail() {
     dispatch,
     postWatchLaterData,
     postLike,
+    removeLike,
     postPlayListsData,
     postVideoToPlaylist,
   } = useDataContext();
@@ -61,7 +62,6 @@ export default function VideoDetail() {
               src={`https://www.youtube.com/embed/${embedId}`}
               title="YouTube video player"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>
@@ -73,7 +73,12 @@ export default function VideoDetail() {
           {token && (
             <div className="videoDetail-buttons">
               {checkInLikes(_id) ? (
-                <button className="videoDetail-button">Dislike</button>
+                <button
+                  className="videoDetail-button"
+                  onClick={() => removeLike(_id, dispatch, token)}
+                >
+                  Dislike
+                </button>
               ) : (
                 <button
                   className="videoDetail-button"
@@ -118,7 +123,19 @@ export default function VideoDetail() {
         <div className="playlist-content">
           <div className="playlist-modal-heading">
             <h2>Add to Playlist</h2>
-            <button onClick={changeModalState}>X</button>
+            <svg
+              onClick={changeModalState}
+              className="w-6 h-6 close-modal-btn"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
           </div>
           <hr />
           <div>
@@ -128,14 +145,16 @@ export default function VideoDetail() {
                     <label htmlFor="">
                       <input
                         type="checkbox"
-                        onChange={() =>
+                        cl
+                        onChange={() => {
                           postVideoToPlaylist(
                             { _id: playlist._id },
                             dispatch,
                             token,
                             { _id, title, description, creator, embedId }
-                          )
-                        }
+                          );
+                          changeModalState();
+                        }}
                       />
                       {playlist.title}
                     </label>
@@ -152,14 +171,16 @@ export default function VideoDetail() {
                   setCreateNewPlayList(false);
                   setPlayListName("");
                 }}
+                className="playlist-modal-form"
               >
                 <input
                   type="text"
                   placeholder="Playlist Name"
                   value={playListName}
                   onChange={(e) => setPlayListName(e.target.value)}
+                  className="playlist-modal-input"
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">Create</button>
               </form>
             ) : (
               <button onClick={() => setCreateNewPlayList(!createNewPlayList)}>

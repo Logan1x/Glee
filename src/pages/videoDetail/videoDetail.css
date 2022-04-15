@@ -51,7 +51,25 @@ button{
 }
 .playlist-modal-heading{
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlist-modal-form{
+    display: flex;
+    align-items: center;
+}
+
+.playlist-modal-input{
+    border: none;
+    border-bottom: 1px solid var(--color-card-bg);
+    padding: 0.5rem;
+}
+
+.playlist-modal-content{
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
 }
 
 .playlist-content{
@@ -61,6 +79,17 @@ button{
     justify-content: space-between;
     flex-direction: column;
     padding: 1rem;
+}
+
+.close-modal-btn{
+    border: none;
+    background-color: var(--color-card-bg);
+    color: var(--color-background);
+    padding: 0.2rem;
+    cursor: pointer;   
+    border-radius:50%;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 @media only screen and (max-width: 425px) {

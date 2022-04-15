@@ -6,13 +6,17 @@ import { useAuth } from "../context/authContext";
 import {
   getWatchLaterData,
   postWatchLaterData,
+  deleteFromWatchLater,
   getHistoryData,
   postHistoryData,
   getLike,
   postLike,
+  removeLike,
   getPlayListsData,
   postPlayListsData,
   postVideoToPlaylist,
+  deleteVideoFromPlaylist,
+  deletePlaylist,
 } from "../utils/dataHelperFunc.js";
 const DataContext = createContext();
 
@@ -56,10 +60,14 @@ const DataProvider = ({ children }) => {
         state,
         dispatch,
         postWatchLaterData,
+        deleteFromWatchLater,
         postHistoryData,
         postLike,
+        removeLike,
         postPlayListsData,
         postVideoToPlaylist,
+        deleteVideoFromPlaylist,
+        deletePlaylist,
       }}
     >
       {children}
