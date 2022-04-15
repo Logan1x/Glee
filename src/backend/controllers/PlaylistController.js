@@ -67,8 +67,7 @@ export const removePlaylistHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const playlistId = request.params.playlistId;
-    console.log(playlistId);
-    console.log(user.playlists);
+
     const filteredPlaylists = user.playlists.filter(
       (item) => item._id !== playlistId
     );

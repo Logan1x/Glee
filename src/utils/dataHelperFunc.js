@@ -226,8 +226,6 @@ export const postVideoToPlaylist = async (
       }),
     });
 
-    console.log(response);
-
     if (response.status === 200 || response.status === 201) {
       dispatch({ type: "UPDATE_PLAYLIST", payload: response.data.playlist });
       notify("Added to Playlist", "success");
@@ -241,7 +239,6 @@ export const postVideoToPlaylist = async (
 };
 
 export const deletePlaylist = async (_id, dispatch, token) => {
-  console.log(`_id is ${_id}`);
   try {
     const response = await axios({
       method: "DELETE",
@@ -250,8 +247,6 @@ export const deletePlaylist = async (_id, dispatch, token) => {
       },
       url: `/api/user/playlists/${_id}`,
     });
-
-    console.log(response);
 
     if (response.status === 200 || response.status === 201) {
       dispatch({ type: "SET_PLAYLISTS", payload: response.data.playlists });
