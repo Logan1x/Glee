@@ -21,6 +21,17 @@
     overflow: hidden;
 }
 
+button{
+    border: none;
+    background-color: var(--color-card-bg);
+    color: var(--color-background);
+    cursor: pointer;
+    margin: 0.5rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
+}
+
 @media only screen and (max-width: 425px) {
     .videoDetail-embed{
         max-width: 100%;

@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import "./videos.css";
 import { useDataContext } from "../../context/dataContext";
 import Sidebar from "../sidebar/Sidebar";
+import { useAuth } from "../../context/authContext";
 
 export default function Videos() {
-  const { state } = useDataContext();
+  const { state, dispatch, postHistoryData } = useDataContext();
+
+  const { token } = useAuth();
 
   const VideosData = state.data;
 
@@ -19,8 +22,18 @@ export default function Videos() {
         <div className="videoListing-card-parent">
           {VideosData.map(({ _id, title, creator, embedId }) => {
             return (
-              <Link to={`/videodetail/${_id}`}>
-                <div key={_id} className="videoListing-card">
+              <Link
+                to={`/videodetail/${_id}`}
+                key={_id}
+                onClick={() =>
+                  postHistoryData(
+                    { _id, title, creator, embedId },
+                    dispatch,
+                    token
+                  )
+                }
+              >
+                <div className="videoListing-card">
                   <img
                     className="videoListing-card-image"
                     src={`https://i.ytimg.com/vi/${embedId}/hqdefault.jpg`}

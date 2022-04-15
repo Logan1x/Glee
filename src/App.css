@@ -48,6 +48,18 @@ body {
     "sidebar main ";
 }
 
+
+.sidebar-grid-parent{
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "sidebar main"
+    "sidebar main";
+  height: 83vh;
+  
+}
+
 .container-pages {
   grid-area: main;
   padding: 1rem;
@@ -83,16 +95,7 @@ body {
   opacity: 0.85;
 }
 
-.sidebar-grid-parent{
-  display: grid;
-  grid-template-columns: 250px 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    "sidebar main"
-    "sidebar main";
-  height: 83vh;
-  
-}
+
 
 footer {
   text-align: center;
@@ -116,6 +119,13 @@ footer a:hover {
     grid-template-areas:
       "header"
       "main";
+  }
+
+  .sidebar-grid-parent{
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "main";
   }
 
   .sidebar,
