@@ -1,0 +1,45 @@
+.playlistDetail-card-parent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    margin: 1rem;
+
+}
+
+.delete-icon{
+    color: var(--color-foreground);
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+
+.delete-icon-svg{
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.3rem;
+    margin: 0rem 0.3rem ;
+
+}
+
+.delete-icon-svg:hover{
+    border-radius: 50%;
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+}
+
+.playlist-title{
+    display: flex;
+    justify-content: space-around;
+}
+
+.no-items-text-center{
+    text-align: center;
+}
+
+.no-items-text-center > img{
+    width: 15rem;
+}

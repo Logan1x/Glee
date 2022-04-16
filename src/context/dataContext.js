@@ -4,13 +4,21 @@ import axios from "axios";
 import { dataReducerFunc, initialState } from "../reducer/dataReducer";
 import { useAuth } from "../context/authContext";
 import {
+  getData,
   getWatchLaterData,
   postWatchLaterData,
+  deleteFromWatchLater,
   getHistoryData,
   postHistoryData,
   getLike,
   postLike,
+  removeLike,
   getPlayListsData,
+  postPlayListsData,
+  postVideoToPlaylist,
+  deleteVideoFromPlaylist,
+  deletePlaylist,
+  getCategories,
 } from "../utils/dataHelperFunc.js";
 const DataContext = createContext();
 
@@ -19,20 +27,13 @@ const DataProvider = ({ children }) => {
 
   const { token } = useAuth();
 
-  const getData = async () => {
-    try {
-      const response = await axios.get("/api/videos");
-      if (response.status === 200 || response.status === 201) {
-        return response.data;
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(async () => {
     const data = await getData();
     dispatch({ type: "SET_DATA", payload: data.videos });
+
+    const categoryData = await getCategories();
+    dispatch({ type: "SET_CATEGORY", payload: categoryData.categories });
+
     if (token) {
       const watchLaterData = await getWatchLaterData(token);
       dispatch({ type: "SET_WATCH_LATER", payload: watchLaterData });
@@ -50,7 +51,19 @@ const DataProvider = ({ children }) => {
 
   return (
     <DataContext.Provider
-      value={{ state, dispatch, postWatchLaterData, postHistoryData, postLike }}
+      value={{
+        state,
+        dispatch,
+        postWatchLaterData,
+        deleteFromWatchLater,
+        postHistoryData,
+        postLike,
+        removeLike,
+        postPlayListsData,
+        postVideoToPlaylist,
+        deleteVideoFromPlaylist,
+        deletePlaylist,
+      }}
     >
       {children}
     </DataContext.Provider>

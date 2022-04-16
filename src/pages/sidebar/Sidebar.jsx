@@ -13,7 +13,6 @@ export default function Sidebar() {
         <Link to="/playlist">My Playlists</Link>
         <Link to="/history">Watching History</Link>
       </div>
-      ;
     </div>
   );
 }

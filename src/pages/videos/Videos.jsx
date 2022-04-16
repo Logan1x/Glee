@@ -4,13 +4,15 @@ import "./videos.css";
 import { useDataContext } from "../../context/dataContext";
 import Sidebar from "../sidebar/Sidebar";
 import { useAuth } from "../../context/authContext";
+import { useCategoryHook } from "../../hooks/categoryHook";
 
 export default function Videos() {
   const { state, dispatch, postHistoryData } = useDataContext();
+  const { categorisedData } = useCategoryHook();
 
   const { token } = useAuth();
 
-  const VideosData = state.data;
+  const VideosData = categorisedData;
 
   return (
     <div className="sidebar-grid-parent">
@@ -19,6 +21,21 @@ export default function Videos() {
         <h3>
           <span>Showing All Results</span> (found {VideosData.length} results)
         </h3>
+        <div className="category-wrapper">
+          {state.category.map(({ id, categoryName }) => {
+            return (
+              <div
+                key={id}
+                className="category-chips"
+                onClick={() =>
+                  dispatch({ type: "SORT_BY_CATEGORY", payload: categoryName })
+                }
+              >
+                {categoryName}
+              </div>
+            );
+          })}
+        </div>
         <div className="videoListing-card-parent">
           {VideosData.map(({ _id, title, creator, embedId }) => {
             return (
