@@ -8,10 +8,28 @@ import "./videoDetail.css";
 
 export default function VideoDetail() {
   const { vid } = useParams();
-  const { state, dispatch, postWatchLaterData } = useDataContext();
+  const { state, dispatch, postWatchLaterData, postLike } = useDataContext();
   const { token } = useAuth();
 
   const VideosData = state.data;
+
+  const checkInWatchLater = (id) => {
+    if (state.watchLater) {
+      if (state.watchLater && state.watchLater.length > 0) {
+        return state.watchLater.find((item) => item._id === id);
+      }
+    }
+    return false;
+  };
+
+  const checkInLikes = (id) => {
+    if (state.likes) {
+      if (state.likes.length > 0) {
+        return state.likes.find((item) => item._id === id);
+      }
+    }
+    return false;
+  };
 
   const { _id, title, description, creator, embedId } = VideosData.find(
     (video) => video._id === vid
@@ -28,9 +46,9 @@ export default function VideoDetail() {
               height="100%"
               src={`https://www.youtube.com/embed/${embedId}`}
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
 
@@ -40,20 +58,42 @@ export default function VideoDetail() {
 
           {token && (
             <div className="videoDetail-buttons">
-              <button className="videoDetail-button">Like</button>
+              {checkInLikes(_id) ? (
+                <button className="videoDetail-button">Dislike</button>
+              ) : (
+                <button
+                  className="videoDetail-button"
+                  onClick={() =>
+                    postLike(
+                      { _id, title, description, creator, embedId },
+                      dispatch,
+                      token
+                    )
+                  }
+                >
+                  Like
+                </button>
+              )}
               <button className="videoDetail-button">Add To Playlist</button>
-              <button
-                className="videoDetail-button"
-                onClick={() =>
-                  postWatchLaterData(
-                    { _id, title, description, creator, embedId },
-                    dispatch,
-                    token
-                  )
-                }
-              >
-                Add To Watch Later
-              </button>
+
+              {checkInWatchLater(_id) ? (
+                <button className="videoDetail-button">
+                  Added To Watch Later
+                </button>
+              ) : (
+                <button
+                  className="videoDetail-button"
+                  onClick={() =>
+                    postWatchLaterData(
+                      { _id, title, description, creator, embedId },
+                      dispatch,
+                      token
+                    )
+                  }
+                >
+                  Add To Watch Later
+                </button>
+              )}
             </div>
           )}
         </div>

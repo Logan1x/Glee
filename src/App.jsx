@@ -11,6 +11,7 @@ import VideoDetail from "./pages/videoDetail/VideoDetail";
 import Login from "./pages/auth/Login";
 import WatchLater from "./pages/watchLater/WatchLater";
 import History from "./pages/history/History";
+import Playlist from "./pages/playlist/Playlist";
 import NotFound from "./pages/notFound/NotFound";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/watchlater" element={<WatchLater />} />
         <Route path="/history" element={<History />} />
+        <Route path="/playlist" element={<Playlist />} />
 
         {/* mockman route */}
         <Route path="/mockman" element={<Mockman />} />

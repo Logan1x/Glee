@@ -45,7 +45,7 @@ export const addItemToLikedVideos = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const { video } = JSON.parse(request.requestBody);
-    if (user.likes.some((item) => item.id === video.id)) {
+    if (user.likes.some((item) => item._id === video._id)) {
       return new Response(
         409,
         {},

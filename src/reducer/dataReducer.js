@@ -6,6 +6,10 @@ const dataReducerFunc = (state, action) => {
       return { ...state, watchLater: action.payload };
     case "SET_WATCHED_HISTORY":
       return { ...state, history: action.payload };
+    case "SET_LIKE":
+      return { ...state, likes: action.payload };
+    case "SET_PLAYLISTS":
+      return { ...state, playlists: action.payload };
     default:
       return state;
   }
@@ -15,6 +19,8 @@ const initialState = {
   data: [],
   watchLater: [],
   history: [],
+  likes: [],
+  playlists: [],
 };
 
 export { dataReducerFunc, initialState };
