@@ -222,11 +222,9 @@ export const postPlayListsData = async (playlistObj, dispatch, token) => {
 
     if (response.status === 200 || response.status === 201) {
       dispatch({ type: "SET_PLAYLISTS", payload: response.data.playlists });
-      // notify("Added to Playlists", "success");
     }
   } catch (error) {
     console.error(error);
-    // notify("Error adding to Playlists", "error");
   }
 };
 

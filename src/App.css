@@ -28,7 +28,7 @@ body {
 .container-main {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr 30px;
+  grid-template-rows: 100px 1fr 1px;
   min-height: 100vh;
   /* margin: auto 3rem; */
   grid-template-areas:
@@ -99,7 +99,6 @@ body {
 
 footer {
   text-align: center;
-  font-size: 1.2rem;
 }
 
 footer a {

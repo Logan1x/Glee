@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import "./home.css";
 
-import HeroImage from "../../assets/homePageImage.jpg";
+import IndieMusic from "../../assets/indieMusic.jpg";
+import PopMusic from "../../assets/popMusic.jpg";
+import RomanceMusic from "../../assets/romanceMusic.png";
 
 export default function Home() {
   return (
@@ -14,47 +16,34 @@ export default function Home() {
             <button className="home-title-btn">Explore</button>
           </Link>
         </div>
-        <img className="home-img" src={HeroImage} alt="" />
       </div>
 
       <div className="section-category">
-        <h2 className="section-category-title">Category</h2>
+        <h2 className="section-category-title">Genre</h2>
         <div className="section-cards-parent">
           <div className="section-card">
-            <img
-              className="section-card-img"
-              src="https://picsum.photos/200/200"
-              alt=""
-            />
-            <div className="section-card-content">
-              <h3>
-                <Link to="/videos">Animation</Link>
-              </h3>
-            </div>
+            <Link to="/videos">
+              <img className="section-card-img" src={PopMusic} alt="" />
+              <div className="section-card-content">
+                <h3>Pop</h3>
+              </div>
+            </Link>
           </div>
           <div className="section-card">
-            <img
-              className="section-card-img"
-              src="https://picsum.photos/200/200"
-              alt=""
-            />
-            <div className="section-card-content">
-              <h3>
-                <Link to="/videos">Education</Link>
-              </h3>
-            </div>
+            <Link to="/videos">
+              <img className="section-card-img" src={IndieMusic} alt="" />
+              <div className="section-card-content">
+                <h3>Indie</h3>
+              </div>
+            </Link>
           </div>
           <div className="section-card">
-            <img
-              className="section-card-img"
-              src="https://picsum.photos/200/200"
-              alt=""
-            />
-            <div className="section-card-content">
-              <h3>
-                <Link to="/videos">Art</Link>
-              </h3>
-            </div>
+            <Link to="/videos">
+              <img className="section-card-img" src={RomanceMusic} alt="" />
+              <div className="section-card-content">
+                <h3>Romance</h3>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
