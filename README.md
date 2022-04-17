@@ -36,7 +36,7 @@ This project is made out of HTML, CSS and ReactJS. **If you love to contribute, 
 - Authentication:
   - User Signup
   - User Login
-
+- 404 Error Page
       
         
 ## Website Preview
