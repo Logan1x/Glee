@@ -53,7 +53,7 @@ p {
 }
 
 .section-category {
-  background-color: #f1f5f9;
+  background-color: var(--color-bg-gray);
 }
 
 .section-category > .section-category-title {
@@ -78,7 +78,7 @@ p {
 .section-cards-parent > .section-card {
   border: 2px solid;
   border-radius: 0.3rem;
-  background-color: #fff;
+  background-color: var(--color-card-fg);
 }
 
 
