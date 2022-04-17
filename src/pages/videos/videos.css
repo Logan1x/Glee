@@ -27,7 +27,6 @@
 
 .videoListing-card-image{
         object-fit: cover;
-        /* height: 100%; */
         width: 20rem;
         border-radius: 0.2rem;
 }
