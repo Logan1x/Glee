@@ -23,7 +23,11 @@ export default function Home() {
         <div className="section-cards-parent">
           <div className="section-card">
             <Link to="/videos">
-              <img className="section-card-img" src={PopMusic} alt="" />
+              <img
+                className="section-card-img"
+                src={PopMusic}
+                alt="pop-section image"
+              />
               <div className="section-card-content">
                 <h3>Pop</h3>
               </div>
@@ -31,7 +35,11 @@ export default function Home() {
           </div>
           <div className="section-card">
             <Link to="/videos">
-              <img className="section-card-img" src={IndieMusic} alt="" />
+              <img
+                className="section-card-img"
+                src={IndieMusic}
+                alt="indiemusic-section-image"
+              />
               <div className="section-card-content">
                 <h3>Indie</h3>
               </div>
@@ -39,7 +47,11 @@ export default function Home() {
           </div>
           <div className="section-card">
             <Link to="/videos">
-              <img className="section-card-img" src={RomanceMusic} alt="" />
+              <img
+                className="section-card-img"
+                src={RomanceMusic}
+                alt="romace-music-section-image"
+              />
               <div className="section-card-content">
                 <h3>Romance</h3>
               </div>

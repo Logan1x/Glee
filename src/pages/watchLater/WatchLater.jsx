@@ -33,7 +33,7 @@ export default function WatchLater() {
                     <img
                       className="videoListing-card-image"
                       src={`https://i.ytimg.com/vi/${embedId}/hqdefault.jpg`}
-                      alt=""
+                      alt="video thumbnail"
                     />
                   </Link>
                   <div>
