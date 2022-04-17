@@ -48,6 +48,7 @@
     background-color: var(--color-card-bg);
     border-radius: 0.2rem;
     color: var(--color-card-fg);
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -6,7 +6,12 @@ p {
 .home-title {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 70vh;
+  background-image: url("../../assets/homePageImage.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
 }
 
 .home-title > .home-title-onImage {
@@ -48,7 +53,7 @@ p {
 }
 
 .section-category {
-  background-color: #cffafe;
+  background-color: var(--color-bg-gray);
 }
 
 .section-category > .section-category-title {
@@ -56,6 +61,8 @@ p {
   font-weight: bold;
   text-align: center;
   padding: 0.5rem;
+  margin: 0;
+
 }
 
 .section-category > .section-cards-parent {
@@ -71,18 +78,20 @@ p {
 .section-cards-parent > .section-card {
   border: 2px solid;
   border-radius: 0.3rem;
-  background-color: #fff;
+  background-color: var(--color-card-fg);
 }
 
-.section-card > img {
-  width: 100%;
-  height: 100%;
+
+.section-card-img{
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 
 .section-card-content > h3 {
   font-size: 1.5rem;
   text-align: center;
+  padding-bottom: 0.3rem;
   margin: 0rem;
 }
 
@@ -94,7 +103,6 @@ a {
 .footer {
   padding: 0.5rem;
   text-align: center;
-  font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 850px) {
@@ -102,7 +110,15 @@ a {
     font-size: 1rem;
   }
 
+  .section-category > .section-category-title {
+    font-size: 1.5rem;
+  }
+
+  .section-card-content > h3{
+    font-size: 1.3rem;
+  }
+
   .home-title {
-    height: auto;
+    height: 40vh;
   }
 }

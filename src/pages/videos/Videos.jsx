@@ -54,7 +54,7 @@ export default function Videos() {
                   <img
                     className="videoListing-card-image"
                     src={`https://i.ytimg.com/vi/${embedId}/hqdefault.jpg`}
-                    alt=""
+                    alt="video thumbnail"
                   />
                   <div>
                     <h2>{title}</h2>

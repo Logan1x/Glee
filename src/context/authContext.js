@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from "react";
-import { loginUtility } from "../utils/authHelper";
 import { useNavigate } from "react-router-dom";
-
 import toast from "react-hot-toast";
+
+import { loginUtility, signupUtility } from "../utils/authHelper";
 
 const AuthContext = createContext();
 
@@ -27,9 +27,9 @@ const AuthProvider = ({ children }) => {
       : toast.error(msg, toastStyle);
   };
 
-  const loginHandler = async (email, password) => {
+  const loginHandler = async (userData) => {
     try {
-      const response = await loginUtility(email, password);
+      const response = await loginUtility(userData);
 
       if (response.status === 200 || response.status === 201) {
         localStorage.setItem(
@@ -50,6 +50,29 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const signupHandler = async (userData) => {
+    try {
+      const response = await signupUtility(userData);
+
+      if (response.status === 200 || response.status === 201) {
+        localStorage.setItem(
+          "loginItems",
+          JSON.stringify({
+            token: response.data.encodedToken,
+            user: response.data.foundUser,
+          })
+        );
+        navigate("/videos");
+        setToken(response.data.encodedToken);
+        setCurrentUser(response.data.foundUser);
+        notify("Signed up successfully!", "success");
+      }
+    } catch (err) {
+      console.error(err);
+      notify("Please try again", "error");
+    }
+  };
+
   const logoutHandler = () => {
     localStorage.removeItem("loginItems");
     setToken(null);
@@ -60,7 +83,14 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ loginHandler, logoutHandler, token, currentUser, notify }}
+      value={{
+        loginHandler,
+        signupHandler,
+        logoutHandler,
+        token,
+        currentUser,
+        notify,
+      }}
     >
       {children}
     </AuthContext.Provider>

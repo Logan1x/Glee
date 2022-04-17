@@ -97,4 +97,8 @@ button{
         max-width: 100%;
         height: 20rem;
     }
+
+    .videoDetail-card{
+        margin: 0.5rem;
+    }
 }
