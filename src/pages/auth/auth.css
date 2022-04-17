@@ -24,6 +24,8 @@
 
 .form-group > * {
   margin: 0.5rem 0;
+  padding: 0 0.5rem;
+
 }
 
 .form-group > input {
@@ -50,10 +52,35 @@
   width: 100%;
 }
 
+.auth-btn:hover {
+  opacity: 95%;
+}
+
+.auth-test-btn{
+  margin: 0.5rem 0;
+  border: 2px solid var(--color-card-bg);
+  background: transparent;
+  color: var(--color-card-bg);
+  border-radius: 0.3rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.auth-test-btn:hover{
+  border-bottom: 5px solid var(--color-card-bg);
+}
+
 .form-redirect a {
   font-size: small;
   color: var(--color-foreground);
   text-decoration: none;
+}
+
+.text-small{
+  font-size: 0.8rem;
 }
 
 @media only screen and (max-width: 400px) {

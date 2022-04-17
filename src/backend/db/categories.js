@@ -26,4 +26,12 @@ export const categories = [
     _id: uuid(),
     categoryName: "Romance",
   },
+  {
+    _id: uuid(),
+    categoryName: "Acoustic",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Dance",
+  },
 ];

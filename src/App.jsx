@@ -9,6 +9,7 @@ import Home from "./pages/home/Home";
 import Videos from "./pages/videos/Videos";
 import VideoDetail from "./pages/videoDetail/VideoDetail";
 import Login from "./pages/auth/Login";
+import Signup from "./pages/auth/Signup";
 import WatchLater from "./pages/watchLater/WatchLater";
 import History from "./pages/history/History";
 import Playlist from "./pages/playlist/Playlist";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/videos" element={<Videos />} />
         <Route path="/videodetail/:vid" element={<VideoDetail />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/watchlater" element={<WatchLater />} />
         <Route path="/history" element={<History />} />
         <Route path="/playlist" element={<Playlist />} />

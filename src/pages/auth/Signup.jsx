@@ -1,37 +1,52 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./auth.css";
 import { useAuth } from "../../context/authContext";
 
-export default function Login() {
+export default function Signup() {
   const [userData, setUserData] = useState({
+    name: "",
     email: "",
     password: "",
   });
 
-  const { loginHandler } = useAuth();
+  const { signupHandler } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    loginHandler(userData);
+    signupHandler(userData);
+    setUserData({ name: "", email: "", password: "" });
   };
+
   return (
     <main className="container-auth">
       <div className="container-paint text-center">
-        <h1>Login</h1>
-        <form action="" className="form-group" onSubmit={handleSubmit}>
+        <h1>Signup</h1>
+        <form onSubmit={handleSubmit} className="form-group">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="form-control"
+            placeholder="Ex: Khushal"
+            value={userData.name}
+            onChange={(e) => {
+              setUserData({ ...userData, name: e.target.value });
+            }}
+            required
+          />
           <label htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
             id="email"
             className="form-control"
-            placeholder="Ex: example@example.com"
+            placeholder="Ex: Khush@plethora.app"
             value={userData.email}
-            onChange={(e) =>
-              setUserData({ ...userData, email: e.target.value })
-            }
+            onChange={(e) => {
+              setUserData({ ...userData, email: e.target.value });
+            }}
             required
           />
           <label htmlFor="password">Password</label>
@@ -42,9 +57,9 @@ export default function Login() {
             className="form-control"
             placeholder="Ex: *******"
             value={userData.password}
-            onChange={(e) =>
-              setUserData({ ...userData, password: e.target.value })
-            }
+            onChange={(e) => {
+              setUserData({ ...userData, password: e.target.value });
+            }}
             required
           />
           <div className="form-group-flex">
@@ -56,23 +71,14 @@ export default function Login() {
               checked
             />
             <label htmlFor="remember" className="text-small">
-              Remember me
+              I accept all Terms & Conditions
             </label>
-            <small className="text-small">Forgot your password?</small>
           </div>
           <button type="submit" className="auth-btn">
-            Login
-          </button>
-          <button
-            className="auth-test-btn"
-            onClick={() =>
-              loginHandler({ email: "khu@gmail.com", password: "khush" })
-            }
-          >
-            Test Credentials
+            Sign Up
           </button>
           <div className="form-redirect">
-            <Link to="/signup">Dont have account? Sign up here</Link>
+            <Link to="/login">Already Have an account? Login</Link>
           </div>
         </form>
       </div>
