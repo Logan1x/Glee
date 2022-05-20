@@ -62,7 +62,7 @@ export default function Home() {
       <footer className="footer">
         Developed By{" "}
         <span className="text-highlight">
-          <Link to="https://github.com/logan1x/glee">Khushal Sharma</Link>
+          <a href="https://github.com/logan1x/glee">Khushal Sharma</a>
         </span>
       </footer>
     </div>
