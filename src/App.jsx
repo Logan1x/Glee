@@ -15,6 +15,7 @@ import History from "./pages/history/History";
 import Playlist from "./pages/playlist/Playlist";
 import PlaylistDetail from "./pages/playlistDetail/PlaylistDetail";
 import NotFound from "./pages/notFound/NotFound";
+import PrivateRoute from "./pages/privateRoute/privateRoute";
 
 function App() {
   return (
@@ -26,10 +27,38 @@ function App() {
         <Route path="/videodetail/:vid" element={<VideoDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/watchlater" element={<WatchLater />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/playlist" element={<Playlist />} />
-        <Route path="/playlistdetail/:pid" element={<PlaylistDetail />} />
+        <Route
+          path="/watchlater"
+          element={
+            <PrivateRoute>
+              <WatchLater />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <PrivateRoute>
+              <History />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlist"
+          element={
+            <PrivateRoute>
+              <Playlist />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlistdetail/:pid"
+          element={
+            <PrivateRoute>
+              <PlaylistDetail />
+            </PrivateRoute>
+          }
+        />
 
         {/* mockman route */}
         <Route path="/mockman" element={<Mockman />} />
