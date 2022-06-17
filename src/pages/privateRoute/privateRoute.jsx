@@ -4,7 +4,6 @@ import { useAuth } from "../../context/authContext";
 export default function PrivateRoute({ children }) {
   const location = useLocation();
   const { token } = useAuth();
-  console.log(token);
   return token ? (
     children
   ) : (
