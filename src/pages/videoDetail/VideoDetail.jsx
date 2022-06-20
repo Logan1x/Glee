@@ -46,9 +46,8 @@ export default function VideoDetail() {
     return false;
   };
 
-  const { _id, title, description, creator, embedId } = VideosData.find(
-    (video) => video._id === vid
-  );
+  const { _id, title, description, creator, embedId, uploadDate, viewCount } =
+    VideosData.find((video) => video._id === vid);
 
   return (
     <div className="sidebar-grid-parent">
@@ -69,6 +68,8 @@ export default function VideoDetail() {
           <h2>{title}</h2>
           <p>{description}</p>
           <p>Uploaded By: {creator}</p>
+          <p>Uploaded On: {uploadDate}</p>
+          <p>Views: {viewCount}</p>
 
           {token && (
             <div className="videoDetail-buttons">
